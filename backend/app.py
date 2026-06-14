@@ -123,6 +123,14 @@ def get_dashboard_stats():
         return jsonify({'error': str(e)}), 500
 
 
+
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({
+        "message": "SmartAQI Backend API is running",
+        "status": "healthy",
+        "version": "2.0.0"
+    })
 @app.route('/api/stations', methods=['GET'])
 def get_stations():
     """Get all monitoring stations with current AQI"""
